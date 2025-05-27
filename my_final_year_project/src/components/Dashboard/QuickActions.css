@@ -1,0 +1,16 @@
+.Quickaction-container {
+  width: 100%;
+  padding: 2rem;
+  background-color: var(--background-color);
+}
+.Quickaction-container h3 {
+  font-size: 2rem;
+  font-family: "Castoro", serif;
+  font-weight: 700;
+  color: var(--text-color);
+}
+.action-container {
+  width: 100%;
+  padding: 1.3rem;
+  /* margin: 5rem 0rem; */
+}

@@ -1,0 +1,78 @@
+.Resume-Container {
+  width: 100%;
+  max-width: 500px;
+  margin: 1.6rem;
+  padding: 2rem;
+  border-radius: 16px;
+  background-color: var(--primary-btn-color);
+}
+.Resume-content h4 {
+  font-family: "Carter One", serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--background-color);
+}
+
+.Resume-content p {
+  font-size: 1.1rem;
+  font-family: "Castoro", serif;
+  color: var(--background-color);
+}
+
+.progress {
+  width: 100%;
+  max-width: 300px;
+  background-color: #ddd;
+  /* background-color: var(--background-color); */
+}
+.progress-bar {
+  background-color: var(--accent-color);
+  
+}
+.userProgress-info h4 {
+  color: var(--accent-color);
+  font-family: "Castoro", serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+}
+
+.Resume-btn {
+  width: 100%;
+  max-width: 200px;
+  border: none;
+  color: var(--background-color);
+  padding: 13px;
+  font-weight: 400;
+  font-family: "Castoro", serif;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  background-color: var(--secondary-btn-color);
+}
+.Resume-btn:hover {
+  background-color: #fb2bff;
+}
+
+/* responsiveness */
+@media screen and (max-width: 524px) and (min-width: 320px) {
+  .Resume-Container {
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem;
+  /* text-align: left;
+  padding: 1rem; */
+ }
+ .progress{
+  width: 100%;
+ }
+ .userProgress-info {
+  flex-direction: column;
+ }
+}
+
+
+@media screen and (max-width: 768px) {
+ .Resume-Container {
+  width: 100%;
+  margin: 0.5rem;
+ }
+}

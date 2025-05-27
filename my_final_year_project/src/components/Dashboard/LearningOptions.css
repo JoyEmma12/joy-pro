@@ -1,0 +1,54 @@
+.LearningOptions-container {
+  width: 100%;
+  padding:2rem;
+  background-color: var(--background-color);
+}
+.LearningOptions-container h3 {
+  font-size: 2rem;
+  font-family: "Castoro", serif;
+  font-weight: 700;
+  color: var(--text-color);
+}
+.options-container {
+  width: 100%;
+  padding: 1.3rem;
+  margin: 5rem 0rem;
+}
+.lang-container {
+  background-color: var(--primary-btn-color);
+  width: 100%;
+  max-width: 30%;
+  padding: 2.3rem;
+  border-radius: 16px;
+  color: var(--background-color);
+  position: relative;
+}
+.lang-img {
+  position: absolute;
+  top: -119px;
+  left: 240px;
+  width: 211px;
+}
+.lang-container h4 {
+  font-family: "Carter One", serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.lang-container p {
+  font-size: 1rem;
+  font-family: "Castoro", serif;
+  font-weight: 400;
+}
+
+.startLearning-btn {
+  width: 100%;
+  max-width: 500px;
+  border: none;
+  color: var(--background-color);
+  padding: 13px;
+  font-weight: 400;
+  font-family: "Castoro", serif;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  background-color: var(--secondary-btn-color);
+}

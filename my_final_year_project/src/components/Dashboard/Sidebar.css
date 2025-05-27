@@ -1,0 +1,54 @@
+/* Sidebar container - initially hidden */
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Sidebar hidden by default */
+  height: 100vh;
+  background: black;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+}
+
+/* Show sidebar when active */
+.sidebar-container.active {
+  left: 0;
+}
+
+/* Sidebar width */
+.custom-sidebar {
+  height: 100vh;
+  background-color: #f4eeff;
+  color: var(--text-color);
+  width: 250px;
+  transition: width 0.3s ease-in-out;
+}
+
+
+/* Content adjusts when sidebar is shown */
+.sidebar-container.active + .dashboard-content {
+  margin-left: 250px;
+  z-index: 1;
+}
+.sidebar-container.active + .lang-img {
+  margin-left: 250px;
+}
+
+/* Toggle button styling */
+.toggle-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 32px;
+}
+
+/* Responsive sidebar */
+@media (max-width: 768px) {
+  .custom-sidebar {
+    width: 80px;
+  }
+  /* .dashboard-content {
+    margin-left: 0; 
+  } */
+}
