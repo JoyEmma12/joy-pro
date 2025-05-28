@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaTwitter } from "react-icons/fa";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
-import SignupImage from "../assets/signup_assets/SignupImage.png";
+
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -20,10 +20,12 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  //function to handle signup input changes
   const handleSignupInput = (e) => {
     const { name, value } = e.target;
     setSignupSetup({ ...signupSetup, [name]: value });
   };
+
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -37,7 +39,7 @@ const Signup = () => {
       alert("Passwords do not match");
       return;
     }
-
+// api call to signup block of code
     try {
       const res = await fetch("http://127.0.0.1:5000/signup", {
         method: "POST",
@@ -51,6 +53,7 @@ const Signup = () => {
       const data = await res.json();
       setMessage(data.message);
 
+      // if signup is successful, store user signup data in localstorage
       if (res.ok) {
         localStorage.setItem(
           "user",
@@ -58,6 +61,8 @@ const Signup = () => {
         );
 
         alert("Sign up successful! You can now login");
+
+        //clears signup form fields
         setSignupSetup({
           fullname: "",
           email: "",
@@ -65,10 +70,10 @@ const Signup = () => {
           password: "",
           confirmpassword: "",
         });
-        navigate("/"); // or navigate("/login")
+        navigate("/"); // redirect to login page after successful signup
       }
     } catch (error) {
-      setMessage("Error connecting to server");
+      setMessage("Error connecting to server", error);
     }
   };
 

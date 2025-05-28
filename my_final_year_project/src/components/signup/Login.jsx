@@ -16,10 +16,12 @@ const Login = () => {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
+  //handles google login when clicked
   const handleGoogleLogin = () => {
     navigate("/google-login");
   };
 
+  //handles input changes in the login form
   const handleLoginInput = (e) => {
     const { name, value } = e.target;
     setLoginSetup({ ...loginSetup, [name]: value });
@@ -28,6 +30,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
+    // basic validation
     try {
       const res = await fetch("http://127.0.0.1:5000/login", {
         method: "POST",
@@ -40,6 +43,7 @@ const Login = () => {
 
       const data = await res.json();
 
+      //if login is successful, store user data in localstorage
       if (res.ok) {
         setMessage("Login successful!");
         // localStorage.setItem("user", JSON.stringify(data.user));
