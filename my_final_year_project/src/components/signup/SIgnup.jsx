@@ -73,14 +73,14 @@ const Signup = () => {
   };
 
   return (
-    <div className="Login-container">
-      <header>Logo</header>
-      <div className="Login-subcontainer d-flex flex-column flex-lg-row justify-content-between align-items-center ">
-        <div className="Login-contents">
+    <div className="Login-container p-5">
+      <div className="Login-subcontainer m-auto p-3">
+        <div className="Login-contents p-4">
           <form onSubmit={handleSignup}>
-            <header className="form-header">
-              <h2>Create Your Free Account</h2>
-              <p>
+            <header className="form-header p-1">
+            <h2 className="text-bg-primary fs-4">Logo</h2>
+              <h3 className="mt-3">Create Your Free Account</h3>
+              <p className=" mt-4">
                 Join our community and start learning Nigerian indigenous
                 languages today!
               </p>
@@ -177,7 +177,6 @@ const Signup = () => {
             </div>
           </form>
         </div>
-        <img src={SignupImage} className="Login-image d-none d-lg-block" />
       </div>
       <p className="text-center text-danger">{message}</p>
     </div>

@@ -1,20 +1,15 @@
-body {
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
 .Login-container {
   background-color: var(--background-color);
   width: 100%;
 }
 .Login-subcontainer {
   width: 100%;
-  padding: 3%;
+  max-width: 600px
   /* position: relative; */
 }
 .Login-contents {
   background-color: #f4eeff;
-  padding: 3rem;
+  /* padding: 3rem; */
   border-radius: 1rem;
   max-width: 100%;
 }
@@ -23,8 +18,13 @@ body {
 }
 .form-header h2 {
   font-family: "Castoro", serif;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 40px;
+}
+.form-header h3 {
+  font-family: "Castoro", serif;
+  font-weight: 400;
+  font-size: 25px;
 }
 .form-header p {
   font-family: "Castoro", serif;
@@ -101,15 +101,6 @@ label {
   font-weight: 700;
   font-family: "Castoro", serif;
   font-size: 1rem;
-}
-/* .Login-image {
-  position: relative;
-} */
-.Login-image {
-  width: 45%;
-  /* position: absolute;
-  top: rem;
-  right: 7rem; */
 }
 
 /* responsive */

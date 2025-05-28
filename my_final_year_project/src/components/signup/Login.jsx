@@ -4,11 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaTwitter } from "react-icons/fa";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
-import loginImage from "../assets/signup_assets/loginImage.png";
+
 
 const Login = () => {
   const [loginSetup, setLoginSetup] = useState({
-    username: "", 
+    username: "",
     password: "",
   });
 
@@ -17,7 +17,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleGoogleLogin = () => {
-    navigate("/google-login"); 
+    navigate("/google-login");
   };
 
   const handleLoginInput = (e) => {
@@ -51,19 +51,19 @@ const Login = () => {
         setMessage(data.message || "Login failed");
       }
     } catch (error) {
-      setMessage("Error connecting to server");
+      setMessage("Error connecting to server", error);
     }
   };
 
   return (
-    <div className="Login-container">
-      <header>Logo</header>
-      <div className="Login-subcontainer d-flex flex-column flex-lg-row justify-content-between align-items-center">
-        <div className="Login-contents">
+    <div className="Login-container p-5">
+      <div className="Login-subcontainer m-auto p-3">
+        <div className="Login-contents p-4">
           <form onSubmit={handleLogin}>
-            <header className="form-header">
-              <h2>Welcome Back!</h2>
-              <p>
+            <header className="form-header p-1">
+              <h2 className=" text-bg-primary fs-4">Logo</h2>
+              <h3 className="mt-3">Welcome Back!</h3>
+              <p className="mt-4">
                 Log into your account and continue your language-learning
                 journey
               </p>
@@ -132,7 +132,6 @@ const Login = () => {
             <p className="text-center text-danger mt-2">{message}</p>
           </form>
         </div>
-        <img src={loginImage} className="Login-image d-none d-lg-block" />
       </div>
     </div>
   );
