@@ -1,64 +1,59 @@
-.dashboard-progress {
-  padding: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.progress-section {
-  background-color: #f4f4f4;
-  border-radius: 1rem;
+.dashboard-progress-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  justify-content: center;
 }
 
-.progress-section h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.8rem;
-  color: #333;
+.progress-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+
+.progress-card:hover {
+  transform: translateY(-3px);
+}
+
+.progress-bar-container {
+  margin: 1rem 0;
 }
 
 .progress-bar {
   width: 100%;
-  height: 15px;
-  background-color: #e0e0e0;
-  border-radius: 20px;
+  height: 12px;
+  background: #eee;
+  border-radius: 6px;
   overflow: hidden;
-  margin-bottom: 1rem;
 }
 
-.filled-bar {
+.progress-fill {
   height: 100%;
-  background-color: #7a5af5; /* Primary color */
-  transition: width 0.5s ease-in-out;
+  background-color: #7a5af5;
+  transition: width 0.5s ease;
 }
 
-.completed-list {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.completed-list li {
-  background-color: #eaf1ff;
-  border-radius: 8px;
+.progress-card button {
+  background: #7a5af5;
+  color: white;
+  border: none;
   padding: 0.5rem 1rem;
-  margin-bottom: 5px;
-  color: #222;
-  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .dashboard-progress {
-    padding: 1rem;
+@media (max-width: 768px) {
+  .dashboard-progress-container {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .progress-section h3 {
-    font-size: 1.2rem;
-  }
-
-  .completed-list li {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
+  .progress-card {
+    width: 90%;
   }
 }
