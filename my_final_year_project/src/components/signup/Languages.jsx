@@ -29,4 +29,10 @@ export const Languages = [
     text: "pronunciation to improve fluency",
     image: image4,
   },
+  {
+    id: 5,
+    language: "efik",
+    text: "Learn Efik vocabulary, sentence structure, and cultural expressions",
+    image: image4,
+  }
 ];

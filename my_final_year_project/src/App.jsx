@@ -9,6 +9,9 @@ import LessonScreen from "./components/Dashboard/LessonPage/LessonScreen";
 import LessonPreviewScreen from "./components/Dashboard/LessonPage/LessonPreviewScreen";
 import LessonCompleteScreen from "./components/Dashboard/LessonPage/LessonCompletedScreen";
 import DashboardProgress from "./components/Dashboard/LessonPage/DashboardProgress";
+import ProgressMain from "./components/Dashboard/LessonPage/ProgressMain";
+import LanguageChart from "./components/Dashboard/LessonPage/LanguageChart";
+
 
 function App() {
   return (
@@ -29,6 +32,8 @@ function App() {
             element={<LessonCompleteScreen />}
           />
           <Route path="/dashboardprogress" element={<DashboardProgress />} />
+          <Route path="/progress" element={<ProgressMain />} />
+          <Route path="/progress/:language" element={<LanguageChart />} />
         </Routes>
       </div>
     </Router>

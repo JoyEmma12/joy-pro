@@ -1,0 +1,21 @@
+.main-progress {
+  padding: 2rem;
+  text-align: center;
+}
+
+.language-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.lang-btn {
+  padding: 1rem 2rem;
+  background: #7a5af5;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}

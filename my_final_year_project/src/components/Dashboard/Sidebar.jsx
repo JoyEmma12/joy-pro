@@ -16,6 +16,9 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
         <Link to="/lessons" className="sidebar-link">
           <FaBook /> {!collapsed && <span>Lessons</span>}
         </Link>
+        <Link to="/progress" className="sidebar-link">
+          <FaCog /> {!collapsed && <span>Progress</span>}
+        </Link>
         <Link to="/settings" className="sidebar-link">
           <FaCog /> {!collapsed && <span>Settings</span>}
         </Link>
