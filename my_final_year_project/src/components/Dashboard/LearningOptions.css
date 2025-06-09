@@ -31,8 +31,15 @@
   text-align: left;
   transition: 0.3s ease-in-out;
   position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+
+.lang-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+}
 .lang-container.active-lang {
   border-color: #7a5af5;
   background-color: #f0ecff;
