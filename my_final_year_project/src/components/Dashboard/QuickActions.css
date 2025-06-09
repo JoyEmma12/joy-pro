@@ -3,70 +3,14 @@
   padding: 2rem;
   background-color: var(--background-color);
 }
-
 .Quickaction-container h3 {
   font-size: 2rem;
   font-family: "Castoro", serif;
   font-weight: 700;
   color: var(--text-color);
-  margin-bottom: 1.5rem;
 }
-
 .action-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-between;
-}
-
-.lang-container {
-  flex: 1;
-  min-width: 260px;
-  background-color: var(--primary-btn-color);
-  color: var(--background-color);
-  padding: 2rem;
-  border-radius: 16px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-}
-
-.lang-container:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.lang-container h4 {
-  font-family: "Carter One", serif;
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
-.startLearning-btn {
-  margin-top: 1rem;
   width: 100%;
-  max-width: 260px;
-  padding: 12px 20px;
-  font-size: 1.05rem;
-  font-family: "Castoro", serif;
-  background-color: var(--secondary-btn-color);
-  color: var(--background-color);
-  border: none;
-  border-radius: 16px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.startLearning-btn:hover {
-  background-color: #fb2bff;
-  transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-  .action-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
+  padding: 1.3rem;
+  /* margin: 5rem 0rem; */
 }
