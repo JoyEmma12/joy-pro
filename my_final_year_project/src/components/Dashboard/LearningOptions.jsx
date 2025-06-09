@@ -1,34 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LearningOptions.css";
 import { Languages } from "../signup/Languages";
 
 const LearningOptions = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [selectedLang, setSelectedLang] = useState(
+    localStorage.getItem("selectedLanguage") || ""
+  );
 
-const handleLanguageSelection = (language) => {
-  //store selection
-  localStorage.setItem("selectedLanguage", language);
+  const handleLanguageSelection = (language) => {
+    localStorage.setItem("selectedLanguage", language);
+    setSelectedLang(language);
     navigate(`/lesson/${language}`);
-}
+  };
+
+  const languageFlags = {
+    Igbo: "🇳🇬",
+    Yoruba: "🟣",
+    Hausa: "🟤",
+    Efik: "🟠",
+    Ibibio: "🔵",
+  };
 
   return (
     <div className="LearningOptions-container">
-        <h3>Choose a Language to Learn</h3>
-
-      {/* language options */}
-      <div className="options-container d-flex flex-row flex-lg-row flex-sm-column justify-content-between flex-wrap gap-5">
-        {Languages.map((options) => {
-          const { id, language, text, image } = options;
-          return (
-            <div key={id} className="lang-container">
+      <h3>Choose a Language to Learn</h3>
+      <div className="options-container">
+        {Languages.map(({ id, language, text, image }) => (
+          <div
+            key={id}
+            className={`lang-container ${
+              selectedLang === language ? "active-lang" : ""
+            }`}>
+            <div className="lang-header">
+              <span className="flag">{languageFlags[language] || "🌍"}</span>
               <h4>{language}</h4>
-              <p>{text}</p>
-              <button className="startLearning-btn" onClick={() => handleLanguageSelection(language)}>Start Learning</button>
-              <img src={image} alt="language-images" className="lang-img" />
             </div>
-          );
-        })}
+            <p>{text}</p>
+            <button
+              className="startLearning-btn"
+              onClick={() => handleLanguageSelection(language)}>
+              {selectedLang === language
+                ? "Continue Learning"
+                : "Start Learning"}
+            </button>
+            <img src={image} alt={language} className="lang-img" />
+          </div>
+        ))}
       </div>
     </div>
   );
