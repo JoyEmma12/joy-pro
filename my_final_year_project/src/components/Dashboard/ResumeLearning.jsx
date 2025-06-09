@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { lessons } from "./LessonPage/LanguageLessons";
 import { useNavigate } from "react-router-dom";
+import "./ResumeLearning.css";
 
 const ResumeLearning = () => {
   const navigate = useNavigate();
   const [progress, setProgress] = useState({});
   const username = JSON.parse(localStorage.getItem("user"))?.username;
   const [resumePoint, setResumePoint] = useState(null);
-  const [statusMessage, setStatusMessage] = useState(""); // For “all done” or “no progress”
+  const [statusMessage, setStatusMessage] = useState("");
 
   useEffect(() => {
     const fetchProgress = async () => {
@@ -34,14 +35,12 @@ const ResumeLearning = () => {
           }
         }
 
-
         if (!found) {
-
           const hasAnyProgress = Object.keys(data).length > 0;
           setStatusMessage(
             hasAnyProgress
               ? "🎉 You’ve completed all available lessons!"
-              : "You haven’t started any lessons yet. Let's get started!"
+              : "You haven’t started any lessons yet. Let’s get started!"
           );
         }
       }
@@ -50,10 +49,11 @@ const ResumeLearning = () => {
     fetchProgress();
   }, [username]);
 
-  if (resumePoint) {
-    return (
-      <div className="resume-container">
-        <h3>Resume Learning</h3>
+  return (
+    <div className="resume-card">
+      <h3 className="resume-title">Resume Learning</h3>
+
+      {resumePoint ? (
         <button
           className="resume-btn"
           onClick={() =>
@@ -61,19 +61,18 @@ const ResumeLearning = () => {
           }>
           Continue {resumePoint.language} from Lesson {resumePoint.lessonId}
         </button>
-      </div>
-    );
-  }
-
-  return (
-    <div className="resume-container">
-      <h3>Resume Learning</h3>
-      <p>{statusMessage}</p>
-      {!progress || Object.keys(progress).length === 0 ? (
-        <button onClick={() => navigate("/language-options")}>
-          Start Learning
-        </button>
-      ) : null}
+      ) : (
+        <>
+          <p className="resume-status">{statusMessage}</p>
+          {!progress || Object.keys(progress).length === 0 ? (
+            <button
+              className="resume-btn"
+              onClick={() => navigate("/language-options")}>
+              Start Learning
+            </button>
+          ) : null}
+        </>
+      )}
     </div>
   );
 };
