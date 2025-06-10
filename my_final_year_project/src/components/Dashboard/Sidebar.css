@@ -14,17 +14,17 @@
 .sidebar-toggle {
   position: absolute;
   top: 1rem;
-  right: -2.5rem;
-  background-color: #1e1e2f;
+  left: 1rem;
+  background: none;
   border: none;
   color: #fff;
   font-size: 1.5rem;
-  cursor: pointer;
   z-index: 1001;
+  cursor: pointer;
 }
 
 .sidebar {
-  padding: 2rem 1rem;
+  padding: 3.5rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -51,9 +51,9 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1000;
+    width: 250px;
     height: 100vh;
-    z-index: 999;
-    background-color: #1e1e2f;
   }
 
   .sidebar-wrapper.collapsed {
@@ -61,7 +61,12 @@
   }
 
   .sidebar-toggle {
+    position: fixed;
     top: 1rem;
     left: 1rem;
+    z-index: 1001;
+  }
+  .sidebar-icon {
+    font-size: 1.5rem;
   }
 }

@@ -9,15 +9,13 @@ import QuickActions from "./QuickActions";
 const Dashboard = () => {
   const [collapsed, setCollapsed] = useState(false);
 
-  const toggleSidebar = () => setCollapsed((prev) => !prev);
+  const toggleSidebar = () => setCollapsed(!collapsed);
 
   return (
     <div className="dashboard-container">
       <Sidebar collapsed={collapsed} toggleSidebar={toggleSidebar} />
-
       <div className="dashboard-main">
         <h2 className="greetings">Welcome back, Clinton!</h2>
-
         <div className="content-box">
           <DashboardProgress />
           <ResumeLearning />

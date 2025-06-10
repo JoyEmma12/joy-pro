@@ -6,6 +6,7 @@ import "./Sidebar.css";
 const Sidebar = ({ collapsed, toggleSidebar }) => {
   return (
     <div className={`sidebar-wrapper ${collapsed ? "collapsed" : ""}`}>
+      {/* Hamburger always visible on small screens */}
       <button className="sidebar-toggle" onClick={toggleSidebar}>
         <FaBars />
       </button>
@@ -17,7 +18,7 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
             {!collapsed && <span>Dashboard</span>}
           </Link>
           <Link to="/lessons" className="sidebar-link">
-            <FaBook />
+            <FaBook className="sidebar-icon" />
             {!collapsed && <span>Lessons</span>}
           </Link>
           <Link to="/progress" className="sidebar-link">
