@@ -2,24 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { lessons } from "./LanguageLessons";
 import "./LessonPreviewScreen.css";
-// import {speak} from "../../../utils/tts"
 
 const LessonPreviewScreen = () => {
   const { language, lessonId } = useParams();
   const navigate = useNavigate();
   const parsedLessonId = parseInt(lessonId, 10);
- //lessonid is already a string, so no need to parse it
-  const lessonContent = lessons[language]?.[parsedLessonId] || []; //gets language lessons from languagelesson file
-  const [currentIndex, setCurrentIndex] = useState(0); //sets current index of the lesson to 0
+
+  const lessonContent = lessons[language]?.[parsedLessonId] || [];
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
 
-
-  // lesson popup block of code
   useEffect(() => {
     setCurrentIndex(0);
     setShowPopup(false);
 
-    //TOAST NOTIFICATION
+    // Toast Notification
     const toast = document.createElement("div");
     toast.textContent = `🎉 Welcome to Lesson ${parsedLessonId}`;
     toast.style.position = "fixed";
@@ -35,39 +32,13 @@ const LessonPreviewScreen = () => {
     setTimeout(() => toast.remove(), 2500);
   }, [language, parsedLessonId]);
 
-  // const speak = (text) => {
-  //   const utterance = new SpeechSynthesisUtterance(text);
-  //   utterance.lang = "en-US";
-  //   window.speechSynthesis.speak(utterance);
-  // };
-
-  // const handleNext = () => {
-  //   if (currentIndex < lessonContent.length - 1) {
-  //     setCurrentIndex(currentIndex + 1);
-  //   } else {
-  //     const progress = JSON.parse(localStorage.getItem("lessonProgress")) || {};
-  //     progress[language] = {
-  //       ...(progress[language] || {}),
-  //       [`lesson${parsedLessonId}`]: "completed",
-  //     };
-  //     localStorage.setItem("lessonProgress", JSON.stringify(progress));
-  //     setShowPopup(true);
-  //   }
-  // };
-
-
-  // handlenext btn function block of code
   const handleNext = async () => {
     if (currentIndex < lessonContent.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      const user = JSON.parse(localStorage.getItem("user")); // Retrieve user from localStorage
-      const username = user ? user.username : null;
+      const user = JSON.parse(localStorage.getItem("user"));
+      const username = user?.username;
 
-      console.log("Retrieved user:", user);
-      console.log("Username for progress:", username);
-
-      console.log("Finishing lesson for user:", username);
       if (username) {
         try {
           const res = await fetch("http://127.0.0.1:5000/progress", {
@@ -92,14 +63,11 @@ const LessonPreviewScreen = () => {
     }
   };
 
-  // handlePrev btn function block of code
   const handlePrev = () => {
     if (currentIndex > 0) setCurrentIndex(currentIndex - 1);
   };
 
-  // go to next lesson function block of code
   const goToNextLesson = () => {
-    // const nextLesson = parsedLessonId + 1;
     setShowPopup(false);
     const lessonKeys = Object.keys(lessons[language])
       .map(Number)
@@ -112,17 +80,15 @@ const LessonPreviewScreen = () => {
     } else {
       navigate(`/lessons/${language}/${parsedLessonId}/completed`);
     }
-
   };
 
-  const currentWord = lessonContent[currentIndex]; // Get the current word based on the current index
+  const currentWord = lessonContent[currentIndex];
 
   return (
     <div className="lesson-preview">
       <h2>{currentWord?.word}</h2>
       <p>{currentWord?.translation}</p>
 
-      {/* for audio tts */}
       {currentWord?.audio && (
         <audio key={`${language}-${currentWord.audio}`} controls>
           <source
@@ -141,7 +107,13 @@ const LessonPreviewScreen = () => {
           {currentIndex < lessonContent.length - 1 ? "Next" : "Finish Lesson"}
         </button>
       </div>
-      {/* popup display jsx */}
+
+      <div className="lesson-header">
+        <button className="back-btn" onClick={() => navigate("/dashboard")}>
+          ← Back to Dashboard
+        </button>
+      </div>
+
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup">
