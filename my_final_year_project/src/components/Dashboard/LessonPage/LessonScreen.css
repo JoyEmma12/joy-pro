@@ -1,0 +1,72 @@
+.lesson-screen-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.lesson-title {
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Castoro", serif;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.lesson-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+.lesson-card.unlocked:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.lesson-card.locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.lesson-card.completed {
+  border-color: #7a5af5;
+  background-color: #f4f0ff;
+}
+
+.completed-badge {
+  color: green;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.lesson-btn {
+  margin-top: 1rem;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-family: "Castoro", serif;
+  border-radius: 12px;
+  background-color: var(--primary-btn-color);
+  color: #fff;
+  border: none;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.lesson-btn:disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
+
+.lesson-btn:hover:enabled {
+  background-color: var(--secondary-btn-color);
+}
