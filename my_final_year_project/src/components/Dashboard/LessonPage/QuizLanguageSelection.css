@@ -1,0 +1,27 @@
+.quiz-selector {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .quiz-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .quiz-card {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 220px;
+  }
+
+  .quiz-card:hover {
+    transform: translateY(-8px);
+    background-color: #f3edff;
+  }

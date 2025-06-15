@@ -18,7 +18,7 @@ const QuickActions = () => {
   };
 
   const handleQuiz = () => {
-    navigate(`/quiz/${selectedLang}`);
+    navigate(`/quiz`);
   };
 
   return (

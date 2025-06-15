@@ -133,6 +133,25 @@ def get_progress(username):  #it fetches user progress based on username
 
     return jsonify(result), 200
 
+
+
+@app.route('/quiz-score', methods=['POST'])
+def save_quiz_score():
+    data = request.json
+    username = data.get("username")
+    language = data.get("language")
+    score = data.get("score")
+
+    # Example structure: save to a dictionary or database
+    # Here we simulate with a file or in-memory store
+    if username and language:
+        # Simulate saving to database
+        user_scores = db.get(username, {}).get("quiz_scores", {})
+        user_scores[language] = score
+        db[username]["quiz_scores"] = user_scores
+        return jsonify({"message": "Score saved"}), 200
+
+    return jsonify({"error": "Missing data"}), 400
 # --- Start Server ---
 if __name__ == "__main__":
     app.run(debug=True)

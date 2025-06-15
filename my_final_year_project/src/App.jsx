@@ -14,6 +14,7 @@ import ProgressMain from "./components/Dashboard/LessonPage/ProgressMain";
 import LanguageChart from "./components/Dashboard/LessonPage/LanguageChart";
 import LessonLangScreen from "./components/Dashboard/LessonPage/LessonLangScreen";
 import QuizScreen from "./components/Dashboard/LessonPage/Quizscreen";
+import QuizLanguageSelection from "./components/Dashboard/LessonPage/QuizLanguageSelection";
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
           <Route path="/progress/:language" element={<LanguageChart />} />
           <Route path="/lessons" element={<LessonLangScreen />} />
 
-          <Route path="/quiz" element={<QuizScreen />} />
+          <Route path="/quiz" element={<QuizLanguageSelection />} />
           <Route path="/quiz/:language" element={<QuizScreen />} />
 
           {/* <Route path="/lessons" element={<LessonScreen />} /> */}
