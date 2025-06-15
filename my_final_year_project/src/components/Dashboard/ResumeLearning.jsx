@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
-import { lessons } from "./LessonPage/LanguageLessons";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { lessons } from "./LessonPage/LanguageLessons";
 import "./ResumeLearning.css";
 
 const ResumeLearning = () => {
   const navigate = useNavigate();
   const [progress, setProgress] = useState({});
-  const username = JSON.parse(localStorage.getItem("user"))?.username;
   const [resumePoint, setResumePoint] = useState(null);
-  const [statusMessage, setStatusMessage] = useState("");
+  const username = JSON.parse(localStorage.getItem("user"))?.username;
 
   useEffect(() => {
     const fetchProgress = async () => {
@@ -17,61 +16,45 @@ const ResumeLearning = () => {
         const data = await res.json();
         setProgress(data);
 
-        let found = false;
-
         for (const lang in lessons) {
-          const sortedLessonKeys = Object.keys(lessons[lang]).sort(
+          const keys = Object.keys(lessons[lang]).sort(
             (a, b) => Number(a) - Number(b)
           );
-
-          for (let i = 0; i < sortedLessonKeys.length; i++) {
-            const lessonId = sortedLessonKeys[i];
+          for (let i = 0; i < keys.length; i++) {
+            const lessonId = keys[i];
             const status = data[lang]?.[`lesson${lessonId}`];
             if (status !== "completed") {
               setResumePoint({ language: lang, lessonId });
-              found = true;
-              break;
+              return;
             }
           }
         }
-
-        if (!found) {
-          const hasAnyProgress = Object.keys(data).length > 0;
-          setStatusMessage(
-            hasAnyProgress
-              ? "🎉 You’ve completed all available lessons!"
-              : "You haven’t started any lessons yet. Let’s get started!"
-          );
-        }
       }
     };
-
     fetchProgress();
   }, [username]);
 
   return (
     <div className="resume-card">
-      <h3 className="resume-title">Resume Learning</h3>
-
+      <h3>⏯️ Pick Up Where You Left Off</h3>
       {resumePoint ? (
-        <button
-          className="resume-btn"
-          onClick={() =>
-            navigate(`/lessons/${resumePoint.language}/${resumePoint.lessonId}`)
-          }>
-          Continue {resumePoint.language} from Lesson {resumePoint.lessonId}
-        </button>
-      ) : (
         <>
-          <p className="resume-status">{statusMessage}</p>
-          {!progress || Object.keys(progress).length === 0 ? (
-            <button
-              className="resume-btn"
-              onClick={() => navigate("/language-options")}>
-              Start Learning
-            </button>
-          ) : null}
+          <p>
+            Continue learning <strong>{resumePoint.language}</strong> from
+            Lesson <strong>{resumePoint.lessonId}</strong>
+          </p>
+          <button
+            className="resume-btn"
+            onClick={() =>
+              navigate(
+                `/lessons/${resumePoint.language}/${resumePoint.lessonId}`
+              )
+            }>
+            Resume Lesson
+          </button>
         </>
+      ) : (
+        <p>You’ve completed all lessons or haven’t started yet.</p>
       )}
     </div>
   );

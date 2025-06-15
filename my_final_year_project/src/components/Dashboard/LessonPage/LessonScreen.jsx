@@ -20,39 +20,47 @@ const LessonScreen = () => {
     fetchProgress();
   }, [language, username]);
 
-  const isLessonUnlocked = (lessonId) => {
-    const id = parseInt(lessonId);
-    return id === 1 || progress[language]?.[`lesson${id - 1}`] === "completed";
+  const isUnlocked = (lessonId) => {
+    return (
+      lessonId === 1 ||
+      progress[language]?.[`lesson${lessonId - 1}`] === "completed"
+    );
+  };
+
+  const getStatus = (lessonId) => {
+    const status = progress[language]?.[`lesson${lessonId}`];
+    if (status === "completed") return "✅ Completed";
+    if (isUnlocked(lessonId)) return "🟡 In Progress";
+    return "🔒 Locked";
   };
 
   const userLessons = lessons[language] || {};
 
   return (
-    <div className="lesson-screen-container">
-      <h2 className="lesson-title">📘 {language} Lessons</h2>
+    <div className="main-lesson-container">
+      <div className="lesson-header">
+        <button className="back-btn" onClick={() => navigate("/dashboard")}>
+          ⬅ Back to Dashboard
+        </button>
+        <h2 className="lesson-title text-center">📚 Lessons in {language}</h2>
+      </div>
 
       <div className="lesson-grid">
         {Object.keys(userLessons)
           .map(Number)
           .sort((a, b) => a - b)
           .map((lessonId) => {
-            const unlocked = isLessonUnlocked(lessonId);
-            const completed =
-              progress[language]?.[`lesson${lessonId}`] === "completed";
-
+            const unlocked = isUnlocked(lessonId);
             return (
               <div
                 key={lessonId}
-                className={`lesson-card ${unlocked ? "unlocked" : "locked"} ${
-                  completed ? "completed" : ""
-                }`}>
+                className={`lesson-card ${!unlocked ? "locked" : ""}`}>
                 <h3>Lesson {lessonId}</h3>
-                {completed && <p className="completed-badge">✅ Completed</p>}
+                <p className="status-label">{getStatus(lessonId)}</p>
                 <button
                   disabled={!unlocked}
-                  className="lesson-btn"
                   onClick={() => navigate(`/lessons/${language}/${lessonId}`)}>
-                  {unlocked ? "Start Learning" : "🔒 Locked"}
+                  {unlocked ? "Start / Resume" : "Locked"}
                 </button>
               </div>
             );

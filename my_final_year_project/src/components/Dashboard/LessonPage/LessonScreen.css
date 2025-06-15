@@ -1,72 +1,97 @@
-.lesson-screen-container {
+.main-lesson-container {
   padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
+  background-color: #f7f6fb;
+  min-height: 100vh;
+}
+
+.lesson-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .lesson-title {
-  text-align: center;
-  font-size: 2rem;
   font-family: "Castoro", serif;
-  margin-bottom: 2rem;
-  color: var(--text-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
 }
 
+.back-btn {
+  background: none;
+  border: 2px solid #7a5af5;
+  color: #7a5af5;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Castoro", serif;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* .back-btn:hover {
+  background-color: #7a5af5;
+  color: #fff;
+
+} */
+
 .lesson-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
+  justify-content: center;
 }
 
 .lesson-card {
-  background: #fff;
-  border-radius: 16px;
+  background-color: #ffffff;
+  border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 250px;
   text-align: center;
-  border: 2px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.lesson-card.unlocked:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+.lesson-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
-.lesson-card.locked {
-  opacity: 0.6;
-  cursor: not-allowed;
+.lesson-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
 }
 
-.lesson-card.completed {
-  border-color: #7a5af5;
-  background-color: #f4f0ff;
+.status-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 1rem;
 }
 
-.completed-badge {
-  color: green;
-  font-weight: bold;
-  margin-top: 0.5rem;
-}
-
-.lesson-btn {
-  margin-top: 1rem;
+.lesson-card button {
+  background-color: #7a5af5;
+  color: white;
+  border: none;
+  border-radius: 8px;
   padding: 10px 16px;
   font-size: 1rem;
   font-family: "Castoro", serif;
-  border-radius: 12px;
-  background-color: var(--primary-btn-color);
-  color: #fff;
-  border: none;
+  cursor: pointer;
   transition: background 0.3s ease;
   width: 100%;
 }
 
-.lesson-btn:disabled {
-  background-color: #bbb;
-  cursor: not-allowed;
+.lesson-card button:hover {
+  background-color: #5a3ddc;
 }
 
-.lesson-btn:hover:enabled {
-  background-color: var(--secondary-btn-color);
+.lesson-card.locked {
+  opacity: 0.5;
+  pointer-events: none;
 }

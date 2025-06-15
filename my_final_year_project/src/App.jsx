@@ -5,12 +5,15 @@ import "./App.css";
 import GoogleLogin from "./components/signup/GoogleLogin";
 import Dashboard from "./components/Dashboard/Dashboard";
 
+
 import LessonScreen from "./components/Dashboard/LessonPage/LessonScreen";
 import LessonPreviewScreen from "./components/Dashboard/LessonPage/LessonPreviewScreen";
 import LessonCompleteScreen from "./components/Dashboard/LessonPage/LessonCompletedScreen";
 import DashboardProgress from "./components/Dashboard/LessonPage/DashboardProgress";
 import ProgressMain from "./components/Dashboard/LessonPage/ProgressMain";
 import LanguageChart from "./components/Dashboard/LessonPage/LanguageChart";
+import LessonLangScreen from "./components/Dashboard/LessonPage/LessonLangScreen";
+import QuizScreen from "./components/Dashboard/LessonPage/Quizscreen";
 
 
 function App() {
@@ -34,6 +37,12 @@ function App() {
           <Route path="/dashboardprogress" element={<DashboardProgress />} />
           <Route path="/progress" element={<ProgressMain />} />
           <Route path="/progress/:language" element={<LanguageChart />} />
+          <Route path="/lessons" element={<LessonLangScreen />} />
+
+          <Route path="/quiz" element={<QuizScreen />} />
+          <Route path="/quiz/:language" element={<QuizScreen />} />
+
+          {/* <Route path="/lessons" element={<LessonScreen />} /> */}
         </Routes>
       </div>
     </Router>

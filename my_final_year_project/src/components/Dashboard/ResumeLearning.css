@@ -1,56 +1,39 @@
 .resume-card {
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  max-width: 400px;
-  /* margin: 1rem; */
+  background: #fff;
+  padding: 1.8rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+  margin: 2rem;
   text-align: center;
-  transition: all 0.3s ease;
+  max-width: 500px;
 }
 
-.resume-title {
+.resume-card h3 {
+  font-size: 1.5rem;
+  color: #7a5af5;
+  margin-bottom: 1rem;
   font-family: "Carter One", serif;
-  font-size: 1.8rem;
-  color: #333;
+}
+
+.resume-card p {
+  font-size: 1.1rem;
+  color: #444;
+  font-family: "Castoro", serif;
   margin-bottom: 1rem;
 }
 
-.resume-status {
-  font-family: "Castoro", serif;
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 1.5rem;
-}
-
 .resume-btn {
-  background-color: #6a0dad;
-  color: #fff;
+  padding: 10px 20px;
+  background-color: #7a5af5;
+  color: white;
   border: none;
-  padding: 0.8rem 1.5rem;
   border-radius: 12px;
   font-size: 1rem;
   font-family: "Castoro", serif;
-  transition: background-color 0.3s ease;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .resume-btn:hover {
-  background-color: #8a2be2;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .resume-card {
-    padding: 1.5rem;
-    margin: 1rem;
-  }
-
-  .resume-title {
-    font-size: 1.5rem;
-  }
-
-  .resume-btn {
-    width: 100%;
-  }
+  background-color: #5a3ddc;
 }
