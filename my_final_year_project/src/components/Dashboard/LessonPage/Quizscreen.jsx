@@ -6,17 +6,49 @@ import "./QuizScreen.css";
 const QuizScreen = () => {
   const { language } = useParams();
   const navigate = useNavigate();
-  const questions = quizData[language.toLowerCase()] || [];
+
+  const langKey = language.toLowerCase();
+  const questions = quizData[langKey] || [];
 
   const [current, setCurrent] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
 
+  // Reset state on language change (important for Next Quiz)
+  useEffect(() => {
+    setCurrent(0);
+    setScore(0);
+    setShowResult(false);
+  }, [language]);
+
+  // Save score to backend
+  useEffect(() => {
+    if (!showResult) return;
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    const username = user?.username;
+
+    if (username) {
+      fetch("http://127.0.0.1:5000/quiz-score", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, language: langKey, score }),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log("Quiz score saved:", data))
+        .catch((err) => console.error("Error saving quiz score:", err));
+    }
+  }, [showResult, langKey, score]);
+
   const handleAnswer = (option) => {
-    if (option === questions[current].answer) setScore(score + 1);
-    current < questions.length - 1
-      ? setCurrent(current + 1)
-      : setShowResult(true);
+    if (option === questions[current].answer) {
+      setScore((prev) => prev + 1);
+    }
+    if (current < questions.length - 1) {
+      setCurrent((prev) => prev + 1);
+    } else {
+      setShowResult(true);
+    }
   };
 
   const handleRetry = () => {
@@ -27,21 +59,20 @@ const QuizScreen = () => {
 
   const goToNextQuiz = () => {
     const quizKeys = Object.keys(quizData).map((key) => key.toLowerCase());
-    const index = quizKeys.indexOf(language.toLowerCase());
+    const index = quizKeys.indexOf(langKey);
     const nextLang = quizKeys[index + 1];
 
     if (nextLang) {
-      navigate(`/quiz/${nextLang}`); // ✅ valid template string
+      navigate(`/quiz/${nextLang}`);
     } else {
       navigate("/dashboard");
     }
   };
 
-
   const getStars = () => {
-    const percentage = (score / questions.length) * 100;
-    if (percentage === 100) return "🌟🌟🌟 Excellent!";
-    if (percentage >= 60) return "🌟🌟 Good Job!";
+    const percent = (score / questions.length) * 100;
+    if (percent === 100) return "🌟🌟🌟 Excellent!";
+    if (percent >= 60) return "🌟🌟 Good Job!";
     return "🌟 Keep Practicing!";
   };
 
@@ -56,43 +87,11 @@ const QuizScreen = () => {
     );
   }
 
-  useEffect(() => {
-    // Reset quiz state when language changes (i.e., next quiz)
-    setCurrent(0);
-    setScore(0);
-    setShowResult(false);
-  }, [language]);
-
-
-  useEffect(() => {
-    if (showResult) {
-      const user = JSON.parse(localStorage.getItem("user"));
-      const username = user?.username;
-
-      if (username) {
-        fetch("http://127.0.0.1:5000/quiz-score", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            username,
-            language,
-            score,
-          }),
-        })
-          .then((res) => res.json())
-          .then((data) => console.log("Quiz score saved:", data))
-          .catch((err) => console.error("Error saving quiz score:", err));
-      }
-    }
-  }, [showResult]);
-
-
-
   return (
     <div className="quiz-wrapper">
       <h2 className="quiz-title">📝 {language} Quiz</h2>
 
-      {!showResult ? (
+      {!showResult && (
         <div className="question-card">
           <h4>{questions[current].question}</h4>
           <div className="options-grid">
@@ -109,7 +108,7 @@ const QuizScreen = () => {
             Question {current + 1} of {questions.length}
           </div>
         </div>
-      ) : null}
+      )}
 
       {showResult && (
         <div className="quiz-overlay">
@@ -132,7 +131,9 @@ const QuizScreen = () => {
                 onClick={() => navigate("/dashboard")}>
                 Dashboard
               </button>
-              {Object.keys(quizData).indexOf(language.toLowerCase()) <
+              {Object.keys(quizData)
+                .map((key) => key.toLowerCase())
+                .indexOf(langKey) <
                 Object.keys(quizData).length - 1 && (
                 <button className="quiz-btn" onClick={goToNextQuiz}>
                   Next Quiz →

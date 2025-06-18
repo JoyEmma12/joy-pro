@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Carter+One&family=Castoro:ital@0;1&display=swap");
 :root {
-  --background-color: #ede2fd;
-  --text-color: #09001c;
-  --accent-color: #fc43da;
-  --primary-btn-color: #6a1cfc;
-  --secondary-btn-color: #fa7bfd;
+  --background: #FDF6EC;
+  --text-primary: #2D2D2D;
+  --text-secondary: #666666;
+  --primary-accent: 	#7A5AF5;
+  --secondary-accent: #34D399;
+  --correct-color-feedback: #10B981;
+  --wrong-color: #F87171;
+  --button-hover: #5A3DDC;
 }
 /* body { overflow-x: hidden; } */

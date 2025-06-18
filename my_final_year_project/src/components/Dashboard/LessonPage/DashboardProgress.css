@@ -19,6 +19,12 @@
 .progress-card:hover {
   transform: translateY(-3px);
 }
+.progress-card h4 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
 
 .progress-bar-container {
   margin: 1rem 0;
@@ -34,17 +40,20 @@
 
 .progress-fill {
   height: 100%;
-  background-color: #7a5af5;
+  background-color: var(--primary-accent);
   transition: width 0.5s ease;
 }
 
 .progress-card button {
-  background: #7a5af5;
+  background: var(--primary-accent);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
+}
+.progress-card button:hover {
+  background: var(--button-hover);
 }
 
 @media (max-width: 768px) {

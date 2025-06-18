@@ -10,7 +10,7 @@
 
 .resume-card h3 {
   font-size: 1.5rem;
-  color: #7a5af5;
+  color: var(--text-primary);
   margin-bottom: 1rem;
   font-family: "Carter One", serif;
 }
