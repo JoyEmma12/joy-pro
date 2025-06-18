@@ -9,6 +9,9 @@ const ProgressMain = () => {
 
   return (
     <div className="main-progress">
+      <button className="back-btn" onClick={() => navigate("/dashboard")}>
+        ⬅ Back to Dashboard
+      </button>
       <h2>Your Language Progress Overview</h2>
       <div className="language-buttons">
         {languages.map((lang) => (

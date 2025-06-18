@@ -26,12 +26,12 @@ const QuizScreen = () => {
   };
 
   const goToNextQuiz = () => {
-    const quizKeys = Object.keys(quizData);
-    const index = quizKeys.indexOf(language);
+    const quizKeys = Object.keys(quizData).map((key) => key.toLowerCase());
+    const index = quizKeys.indexOf(language.toLowerCase());
     const nextLang = quizKeys[index + 1];
 
     if (nextLang) {
-      navigate(`/quiz/${nextLang}`);
+      navigate(`/quiz/${nextLang}`); // ✅ valid template string
     } else {
       navigate("/dashboard");
     }
@@ -56,6 +56,13 @@ const QuizScreen = () => {
     );
   }
 
+  useEffect(() => {
+    // Reset quiz state when language changes (i.e., next quiz)
+    setCurrent(0);
+    setScore(0);
+    setShowResult(false);
+  }, [language]);
+
 
   useEffect(() => {
     if (showResult) {
@@ -78,6 +85,9 @@ const QuizScreen = () => {
       }
     }
   }, [showResult]);
+
+
+
   return (
     <div className="quiz-wrapper">
       <h2 className="quiz-title">📝 {language} Quiz</h2>
