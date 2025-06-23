@@ -1,24 +1,14 @@
 .quick-actions-container {
-  width: 100%;
-  padding: 2rem;
-  background-color: #fdfcfe;
-  border-radius: 12px;
+  padding: 2rem 0;
 }
 
 .quick-actions-title {
   font-size: 2rem;
   font-family: "Castoro", serif;
   font-weight: 700;
-  color: #333;
+  color: var(--text-color);
   margin-bottom: 2rem;
-  /* text-align: center; */
-}
-
-.quick-actions-cards {
-  display: flex;
-  flex-wrap: wrap;
-  /* justify-content: center; */
-  gap: 2rem;
+  text-align: center;
 }
 
 .quick-actions-card {
@@ -28,9 +18,8 @@
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease-in-out;
-  max-width: 380px;
-  width: 100%;
   text-align: center;
+  height: 100%;
 }
 
 .quick-actions-card:hover {
@@ -43,7 +32,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #4b2995;
+  color: var(--text-primary);
 }
 
 .quick-actions-btn {
@@ -68,9 +57,17 @@
   box-shadow: 0 4px 14px rgba(122, 90, 245, 0.3);
 }
 
-@media (max-width: 768px) {
-  .quick-actions-cards {
-    flex-direction: column;
-    align-items: center;
+@media (max-width: 576px) {
+  .quick-actions-title {
+    font-size: 1.5rem;
+  }
+
+  .quick-actions-card h4 {
+    font-size: 1.2rem;
+  }
+
+  .quick-actions-btn {
+    font-size: 0.95rem;
+    padding: 10px 16px;
   }
 }
