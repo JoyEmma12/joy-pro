@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { lessons } from "./LanguageLessons";
 import "./LessonScreen.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const LessonScreen = () => {
   const { language } = useParams();
@@ -10,6 +12,7 @@ const LessonScreen = () => {
   const username = JSON.parse(localStorage.getItem("user"))?.username;
 
   useEffect(() => {
+    AOS.init({ duration: 800 });
     const fetchProgress = async () => {
       if (username) {
         const res = await fetch(`http://127.0.0.1:5000/progress/${username}`);
@@ -37,31 +40,37 @@ const LessonScreen = () => {
   const userLessons = lessons[language] || {};
 
   return (
-    <div className="main-lesson-container">
-      <div className="lesson-header">
-        <button className="back-btn" onClick={() => navigate("/dashboard")}>
+    <div className="main-lesson-container ">
+      <div className="lesson-header d-flex justify-content-between align-items-center flex-wrap mb-4">
+        <button className="back-btn mb-2" onClick={() => navigate("/dashboard")}>
           ⬅ Back to Dashboard
         </button>
-        <h2 className="lesson-title text-center">📚 Lessons in {language}</h2>
+        <h2 className="lesson-title text-center w-100">📚 Lessons in {language}</h2>
       </div>
 
-      <div className="lesson-grid">
+      <div className="row g-4 justify-content-center container-fluid">
         {Object.keys(userLessons)
           .map(Number)
           .sort((a, b) => a - b)
-          .map((lessonId) => {
+          .map((lessonId, index) => {
             const unlocked = isUnlocked(lessonId);
             return (
               <div
                 key={lessonId}
-                className={`lesson-card ${!unlocked ? "locked" : ""}`}>
-                <h3>Lesson {lessonId}</h3>
-                <p className="status-label">{getStatus(lessonId)}</p>
-                <button
-                  disabled={!unlocked}
-                  onClick={() => navigate(`/lessons/${language}/${lessonId}`)}>
-                  {unlocked ? "Start / Resume" : "Locked"}
-                </button>
+                className="col-sm-6 col-md-4 col-lg-3"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <div className={`lesson-card ${!unlocked ? "locked" : ""}`}>
+                  <h3>Lesson {lessonId}</h3>
+                  <p className="status-label">{getStatus(lessonId)}</p>
+                  <button
+                    disabled={!unlocked}
+                    onClick={() => navigate(`/lessons/${language}/${lessonId}`)}
+                  >
+                    {unlocked ? "Start / Resume" : "Locked"}
+                  </button>
+                </div>
               </div>
             );
           })}

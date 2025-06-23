@@ -1,23 +1,18 @@
 .main-lesson-container {
-  padding: 2rem;
-  background-color: #f7f6fb;
+  padding: 2rem 0;
+  background-color: var(--background);
   min-height: 100vh;
 }
 
 .lesson-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 2rem;
-  flex-wrap: wrap;
 }
 
 .lesson-title {
   font-family: "Castoro", serif;
   font-size: 2rem;
-  margin-bottom: 1rem;
   color: #333;
-  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .back-btn {
@@ -26,24 +21,10 @@
   color: #7a5af5;
   padding: 8px 16px;
   border-radius: 10px;
-  cursor: pointer;
   font-family: "Castoro", serif;
   transition: all 0.3s ease;
   font-weight: 500;
-  text-decoration: none;
-}
-
-/* .back-btn:hover {
-  background-color: #7a5af5;
-  color: #fff;
-
-} */
-
-.lesson-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
+  cursor: pointer;
 }
 
 .lesson-card {
@@ -51,9 +32,9 @@
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  width: 250px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
 }
 
 .lesson-card:hover {
@@ -63,19 +44,19 @@
 
 .lesson-card h3 {
   font-size: 1.5rem;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .status-label {
   font-size: 1rem;
   font-weight: 500;
-  color: #666;
+  color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
 .lesson-card button {
-  background-color: #7a5af5;
+  background-color: var(--primary-accent);
   color: white;
   border: none;
   border-radius: 8px;
@@ -88,7 +69,7 @@
 }
 
 .lesson-card button:hover {
-  background-color: #5a3ddc;
+  background-color: var(--button-hover);
 }
 
 .lesson-card.locked {

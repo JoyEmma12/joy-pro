@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { lessons } from "./LanguageLessons";
 import "./LessonPreviewScreen.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const LessonPreviewScreen = () => {
   const { language, lessonId } = useParams();
@@ -13,6 +15,8 @@ const LessonPreviewScreen = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
+    AOS.init({ duration: 700 });
+
     setCurrentIndex(0);
     setShowPopup(false);
 
@@ -85,12 +89,21 @@ const LessonPreviewScreen = () => {
   const currentWord = lessonContent[currentIndex];
 
   return (
-    <div className="lesson-preview">
-      <h2>{currentWord?.word}</h2>
-      <p>{currentWord?.translation}</p>
+    <div className="lesson-preview" data-aos="fade-up">
+      <div className="lesson-header">
+        <button className="back-btn" onClick={() => navigate("/dashboard")}>
+          ← Back to Dashboard
+        </button>
+      </div>
+
+      <h2 data-aos="zoom-in">{currentWord?.word}</h2>
+      <p data-aos="fade-in">{currentWord?.translation}</p>
 
       {currentWord?.audio && (
-        <audio key={`${language}-${currentWord.audio}`} controls>
+        <audio
+          key={`${language}-${currentWord.audio}`}
+          controls
+          data-aos="fade-up">
           <source
             src={`/audio/${language}/${currentWord.audio}`}
             type="audio/mp3"
@@ -99,7 +112,7 @@ const LessonPreviewScreen = () => {
         </audio>
       )}
 
-      <div className="controls">
+      <div className="controls" data-aos="fade-up">
         <button onClick={handlePrev} disabled={currentIndex === 0}>
           Previous
         </button>
@@ -108,15 +121,9 @@ const LessonPreviewScreen = () => {
         </button>
       </div>
 
-      <div className="lesson-header">
-        <button className="back-btn" onClick={() => navigate("/dashboard")}>
-          ← Back to Dashboard
-        </button>
-      </div>
-
       {showPopup && (
         <div className="popup-overlay">
-          <div className="popup">
+          <div className="popup" data-aos="zoom-in">
             <h3>🎉 Lesson Completed!</h3>
             <p>Would you like to continue with the next lesson?</p>
             <button onClick={goToNextLesson}>Continue</button>

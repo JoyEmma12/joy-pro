@@ -11,14 +11,14 @@
 
   .lesson-preview h2 {
     font-size: 2rem;
-    color: #333;
+    color: var(--text-primary);
     font-family: "Carter One", serif;
     margin-bottom: 0.5rem;
   }
 
   .lesson-preview p {
     font-size: 1.2rem;
-    color: #666;
+    color: var(--text-secondary);
     font-family: "Castoro", serif;
     margin-bottom: 1.5rem;
   }
@@ -42,7 +42,7 @@
     font-family: "Castoro", serif;
     border-radius: 12px;
     border: none;
-    background-color: #7a5af5;
+    background-color: var(--primary-accent);
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -54,7 +54,7 @@
   }
 
   .controls button:hover:not(:disabled) {
-    background-color: #5a3ddc;
+    background-color: var(--button-hover);
     transform: scale(1.05);
   }
 
@@ -84,13 +84,13 @@
   .popup h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: var(--text-primary);
     font-family: "Carter One", serif;
   }
 
   .popup p {
     font-size: 1rem;
-    color: #666;
+    color: var(--text-secondary);
     font-family: "Castoro", serif;
   }
 
@@ -98,7 +98,7 @@
     margin-top: 1rem;
     padding: 12px 24px;
     border-radius: 12px;
-    background-color: #7a5af5;
+    background-color: var(--primary-accent);
     color: #fff;
     border: none;
     font-size: 1rem;
@@ -107,7 +107,7 @@
   }
 
   .popup button:hover {
-    background-color: #5a3ddc;
+    background-color: var(--button-hover);
   }
 
   .lesson-header {
@@ -119,7 +119,7 @@
   .back-btn {
     background: none;
     border: none;
-    color: #7a5af5;
+    color: var(--primary-accent);
     font-size: 1rem;
     font-family: "Castoro", serif;
     cursor: pointer;
@@ -130,7 +130,7 @@
   }
 
   .back-btn:hover {
-    color: #5a3ddc;
+    color: var(--button-hover);
     text-decoration: underline;
   }
 
