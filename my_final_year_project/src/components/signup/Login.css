@@ -1,148 +1,189 @@
+/* Base Container */
 .Login-container {
-  background-color: var(--background-color);
   width: 100%;
+  padding: 2rem 1rem;
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
+
 .Login-subcontainer {
   width: 100%;
-  max-width: 600px
-  /* position: relative; */
+  max-width: 600px;
+  padding: 1rem;
+
 }
+
 .Login-contents {
-  background-color: #f4eeff;
-  /* padding: 3rem; */
+  background-color: #fff;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
-  max-width: 100%;
+  padding: 2rem;
+  width: 100%;
 }
+
+/* Header */
 .form-header {
   text-align: center;
+  margin-bottom: 2rem;
 }
+
 .form-header h2 {
   font-family: "Castoro", serif;
   font-weight: 600;
-  font-size: 40px;
+  font-size: 2.5rem;
 }
+
 .form-header h3 {
   font-family: "Castoro", serif;
   font-weight: 400;
-  font-size: 25px;
+  font-size: 1.5rem;
+  margin-top: 1rem;
 }
+
 .form-header p {
   font-family: "Castoro", serif;
-  font-weight: 400;
-  font-size: 16px;
-}
-.otherOptions {
-  margin-top: 3rem;
-}
-.otherOptions-btn {
-  width: 60%;
-  padding: 0.9rem;
-  background-color: var(--primary-btn-color);
-  color: var(--background-color);
   font-size: 1rem;
-  font-family: "Castoro", serif;
-  font-weight: 300;
+  color: var(--text-primary);
+}
+
+/* Social Login Buttons */
+.otherOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.otherOptions-btn {
+  width: 100%;
+  max-width: 280px;
+  padding: 0.75rem;
   border: none;
   border-radius: 1rem;
+  background-color: var(--primary-accent);
+  color: #fff;
+  font-family: "Castoro", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s;
 }
+
+.otherOptions-btn:hover {
+  background-color: var(--button-hover);
+}
+
+/* Form Inputs */
+.login-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .login-input {
   width: 100%;
-  padding: 0.5rem;
-  border: 2px solid var(--primary-btn-color);
-  border-radius: 15px;
-  background-color: var(--background-color);
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 2px solid var(--primary-accent);
+  background-color: #fff;
+  font-size: 1rem;
 }
-.login-input[type="focus"] {
-  border: none;
-}
+
 label {
   font-family: "Castoro", serif;
   font-weight: 500;
 }
+
+/* Password Visibility Icon */
 .eye-icon {
   position: absolute;
-  /* bottom: -29px;
-  right: 800px; */
-  top: 70%; /* Center vertically */
-  right: 18px; /* Keep it inside the input field */
+  right: 18px;
+  top: 67%;
   transform: translateY(-50%);
-  /* transform: translateX(10%); */
-  font-size: 1rem;
-  color: var(--primary-btn-color);
+  font-size: 1.2rem;
+  color: var(--primary-accent);
+  cursor: pointer;
 }
+
+/* Forgot Password */
 .fp-link {
-  color: var(--text-color);
-  font-family: "Castoro", serif;
-  font-weight: 500;
-  font-style: italic;
-  /* margin-left: 24rem; */
   text-align: right;
-  /* transform: translateX(50%); */
+  color: var(--primary-accent);
+  font-style: italic;
+  font-weight: 500;
+  font-family: "Castoro", serif;
+  cursor: pointer;
 }
+
+/* Submit Button */
 .Login-btn {
-  width: 50%;
+  width: 100%;
+  max-width: 280px;
+  padding: 0.75rem;
   border: none;
-  border-radius: 16px;
-  padding: 0.9rem;
+  border-radius: 12px;
+  background-color: var(--primary-accent);
+  color: #fff;
   font-family: "Castoro", serif;
   font-weight: 600;
-  color: var(--background-color);
   font-size: 1rem;
-  background-color: var(--primary-btn-color);
+  transition: background-color 0.3s;
 }
+
+.Login-btn:hover {
+  background-color: var(--button-hover);
+}
+
+/* Message and Redirect */
 .login-options p {
   font-family: "Castoro", serif;
   font-weight: 400;
-  color: var(--text-color);
+  color: var(--text-secondary);
 }
+
 .redirect-link {
-  color: var(--accent-color);
-  text-decoration: none;
+  color: var(--secondary-accent);
   font-weight: 700;
+  text-decoration: none;
   font-family: "Castoro", serif;
   font-size: 1rem;
 }
 
-/* responsive */
-@media screen and (max-width: 524px) {
-  .Login-subcontainer {
-    flex-direction: column;
-    padding: 0;
-  }
-  .Login-contents {
-    width: 100%;
-  }
-  .otherOptions {
-    flex-direction: column;
-  }
-  .otherOptions-btn {
-    width: 100%;
-  }
-  /* .form-header h2  {
-    font-size: 30px;
-  } */
-  .Login-image {
-    width: 100%;
-    /* max-width: 5%; */
-  }
-  /* .eye-icon {
-    position: absolute;
-  top: 107%;
-  right: 72px;
-  transform: translateY(-50%);
-    right: 80px;
-    top: 109%;
-  } */
+.redirect-link:hover {
+  text-decoration: underline;
 }
 
-@media screen and (min-width: 992px) {
+/* Responsive Breakpoints */
+@media (min-width: 768px) {
   .otherOptions {
     flex-direction: row;
-    gap: 0.9rem;
+    justify-content: center;
+    gap: 1rem;
   }
 
   .otherOptions-btn {
+    width: auto;
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-header h2 {
+    font-size: 2rem;
+  }
+
+  .form-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .Login-btn {
     width: 100%;
-    max-width: 250px;
   }
 }

@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./Signup.css";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaTwitter } from "react-icons/fa";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
-
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -20,17 +21,18 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  //function to handle signup input changes
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   const handleSignupInput = (e) => {
     const { name, value } = e.target;
     setSignupSetup({ ...signupSetup, [name]: value });
   };
 
-
   const handleSignup = async (e) => {
     e.preventDefault();
 
-    // basic validations
     if (!signupSetup.email || !signupSetup.fullname || !signupSetup.username) {
       alert("All fields are required!");
       return;
@@ -39,7 +41,7 @@ const Signup = () => {
       alert("Passwords do not match");
       return;
     }
-// api call to signup block of code
+
     try {
       const res = await fetch("http://127.0.0.1:5000/signup", {
         method: "POST",
@@ -53,7 +55,6 @@ const Signup = () => {
       const data = await res.json();
       setMessage(data.message);
 
-      // if signup is successful, store user signup data in localstorage
       if (res.ok) {
         localStorage.setItem(
           "user",
@@ -62,7 +63,6 @@ const Signup = () => {
 
         alert("Sign up successful! You can now login");
 
-        //clears signup form fields
         setSignupSetup({
           fullname: "",
           email: "",
@@ -70,7 +70,7 @@ const Signup = () => {
           password: "",
           confirmpassword: "",
         });
-        navigate("/"); // redirect to login page after successful signup
+        navigate("/");
       }
     } catch (error) {
       setMessage("Error connecting to server", error);
@@ -78,35 +78,35 @@ const Signup = () => {
   };
 
   return (
-    <div className="Login-container p-5">
-      <div className="Login-subcontainer m-auto p-3">
+    <div className="Login-container p-4">
+      <div className="Login-subcontainer m-auto p-3" data-aos="fade-up">
         <div className="Login-contents p-4">
           <form onSubmit={handleSignup}>
             <header className="form-header p-1">
-            <h2 className="text-bg-primary fs-4">Logo</h2>
+              <h2 className="text-bg-primary fs-4">Logo</h2>
               <h3 className="mt-3">Create Your Free Account</h3>
-              <p className=" mt-4">
+              <p className="mt-4">
                 Join our community and start learning Nigerian indigenous
                 languages today!
               </p>
             </header>
 
-            <div className="otherOptions d-flex flex-column flex-lg-row align-items-center justify-content-center gap-1 gap-lg-3">
+            <div className="otherOptions d-flex flex-column flex-lg-row align-items-center justify-content-center gap-2 mt-4">
               <button
                 type="button"
-                className="otherOptions-btn d-flex flex-row align-items-center justify-content-center gap-2 ">
-                <FcGoogle className=" fs-4" />
+                className="otherOptions-btn d-flex align-items-center justify-content-center gap-2">
+                <FcGoogle className="fs-4" />
                 <span>Sign in with Google</span>
               </button>
               <button
                 type="button"
-                className="otherOptions-btn d-flex flex-lg-row align-items-center justify-content-center gap-2 ">
-                <FaTwitter className=" fs-4" />
+                className="otherOptions-btn d-flex align-items-center justify-content-center gap-2">
+                <FaTwitter className="fs-4" />
                 <span>Sign in with Twitter</span>
               </button>
             </div>
 
-            <p className=" text-center m-4 fs-6">or sign in with</p>
+            <p className="text-center mt-4 fs-6">or sign in with</p>
 
             <div className="Login-form d-flex flex-column gap-4">
               {["fullname", "email", "username"].map((field) => (
@@ -164,12 +164,13 @@ const Signup = () => {
               <div>
                 <input type="checkbox" id="terms" required />
                 <label htmlFor="terms">
+                  {" "}
                   I agree to the terms and conditions
                 </label>
               </div>
             </div>
 
-            <div className="login-options d-flex flex-column align-items-center gap-2 mt-5">
+            <div className="login-options d-flex flex-column align-items-center gap-2 mt-4">
               <button type="submit" className="Login-btn">
                 Start Learning Now
               </button>
@@ -183,7 +184,7 @@ const Signup = () => {
           </form>
         </div>
       </div>
-      <p className="text-center text-danger">{message}</p>
+      <p className="text-center text-danger mt-3">{message}</p>
     </div>
   );
 };
