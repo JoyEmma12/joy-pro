@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { quizData } from "./quizdata";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./QuizScreen.css";
 
 const QuizScreen = () => {
   const { language } = useParams();
   const navigate = useNavigate();
-
   const langKey = language.toLowerCase();
   const questions = quizData[langKey] || [];
 
@@ -14,14 +15,16 @@ const QuizScreen = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
 
-  // Reset state on language change (important for Next Quiz)
+  useEffect(() => {
+    AOS.init({ duration: 600, once: true });
+  }, []);
+
   useEffect(() => {
     setCurrent(0);
     setScore(0);
     setShowResult(false);
   }, [language]);
 
-  // Save score to backend
   useEffect(() => {
     if (!showResult) return;
 
@@ -78,7 +81,7 @@ const QuizScreen = () => {
 
   if (!questions.length) {
     return (
-      <div className="quiz-wrapper">
+      <div className="quiz-wrapper" data-aos="fade-in">
         <h2>No quiz available for {language}</h2>
         <button className="quiz-btn" onClick={() => navigate("/quiz")}>
           Back
@@ -88,11 +91,11 @@ const QuizScreen = () => {
   }
 
   return (
-    <div className="quiz-wrapper">
+    <div className="quiz-wrapper" data-aos="fade-up">
       <h2 className="quiz-title">📝 {language} Quiz</h2>
 
       {!showResult && (
-        <div className="question-card">
+        <div className="question-card" data-aos="zoom-in">
           <h4>{questions[current].question}</h4>
           <div className="options-grid">
             {questions[current].options.map((opt, idx) => (
@@ -111,7 +114,7 @@ const QuizScreen = () => {
       )}
 
       {showResult && (
-        <div className="quiz-overlay">
+        <div className="quiz-overlay" data-aos="fade-in">
           <div className="result-card">
             <h3 className="score">
               Your Score: {score} / {questions.length}
