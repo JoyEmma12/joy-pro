@@ -17,7 +17,7 @@
       {"word": "Gbọ́", "translation": "Listen", "audio": "gbo.mp3"}
     ],
     "4": [
-      {"word": "Ẹ káàrọ̀", "translation": "Good morning", "audio": "e-kaarọ.mp3"},
+      {"word": "Ẹ káàrọ̀", "translation": "Good morning", "audio": "e-kaaro.mp3"},
       {"word": "Ẹ káàsán", "translation": "Good afternoon", "audio": "e-kaasan.mp3"},
       {"word": "Ẹ káalẹ́", "translation": "Good evening", "audio": "e-kaale.mp3"}
     ],
@@ -52,12 +52,12 @@
       {"word": "Nibẹ", "translation": "There", "audio": "nibe.mp3"}
     ],
     "12": [
-      {"word": "Pe mi", "translation": "Call me", "audio": "pe-mi.mp3"},
+      {"word": "Pe mi", "translation": "Call me", "audio": "pemi.mp3"},
       {"word": "Dákun fara", "translation": "Take it easy", "audio": "dakun-fara.mp3"}
     ],
     "13": [
-      {"word": "Ṣe daadaa ni?", "translation": "How are you?", "audio": "se-daadaa-ni.mp3"},
-      {"word": "Mo wa daadaa", "translation": "I am fine", "audio": "mo-wa-daadaa.mp3"}
+      {"word": "Ṣe daadaa ni?", "translation": "How are you?", "audio": "se-daada-ni.mp3"},
+      {"word": "Mo wa daadaa", "translation": "I am fine", "audio": "mo-wa-daada.mp3"}
     ],
     "14": [
       {"word": "Inú", "translation": "Inside", "audio": "inu.mp3"},
