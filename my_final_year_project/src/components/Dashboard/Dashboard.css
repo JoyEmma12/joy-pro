@@ -16,13 +16,27 @@
   min-height: 100vh;
 }
 
-/* --- Greeting Text --- */
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
 .greetings {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333;
+}
+/* --- Greeting Text --- */
+/* .greetings {
   font-size: 1.9rem;
   margin-bottom: 1.5rem;
   font-weight: 650;
   color: var(--text-primary);
-}
+} */
 
 /* --- Card Content Box --- */
 .content-box {
@@ -30,6 +44,21 @@
   padding: 2rem;
   border-radius: 8px;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+.logout-btn {
+  padding: 8px 16px;
+  background-color: #f44336;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #d32f2f;
 }
 
 /* --- Responsive Layout --- */
@@ -40,6 +69,19 @@
 
   .dashboard-main {
     padding: 1rem;
+  }
+    .dashboard-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .greetings {
+    font-size: 1.3rem;
+  }
+
+  .logout-btn {
+    width: 100%;
+    justify-content: center;
   }
 
   /* Sidebar on small screens is styled in Sidebar.css */
