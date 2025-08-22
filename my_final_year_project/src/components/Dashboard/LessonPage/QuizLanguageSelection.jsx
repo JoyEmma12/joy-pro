@@ -14,6 +14,9 @@ const QuizLanguageSelection = () => {
 
   return (
     <div className="quiz-selector" data-aos="fade-up">
+      <button className="back-btn" onClick={() => navigate("/dashboard")}>
+        ⬅ Back to Dashboard
+      </button>
       <h2 data-aos="fade-up" data-aos-delay="100">
         📘 Select a Quiz
       </h2>

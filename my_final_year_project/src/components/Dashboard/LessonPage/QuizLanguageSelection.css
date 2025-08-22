@@ -47,6 +47,7 @@
 .quiz-card:hover {
   transform: translateY(-6px);
   background-color: var(--primary-accent);
+  color: #ffffff;
 }
 
 /* Responsive Styling */
