@@ -113,4 +113,110 @@ export const quizData = {
       answer: "Safe journey",
     },
   ],
+  ibibio: [
+    {
+      question: "What does 'Mfoniso' mean in English?",
+      options: ["Blessing", "Love", "Peace", "Goodbye"],
+      answer: "Blessing",
+    },
+    {
+      question: "Translate 'Sọsọñọ' to English.",
+      options: ["Thank you", "Hello", "Sorry", "Good night"],
+      answer: "Thank you",
+    },
+    {
+      question: "What is 'Idem mfo' in English?",
+      options: ["Your body", "How are you?", "Sit down", "I am fine"],
+      answer: "How are you?",
+    },
+    {
+      question: "Translate 'Abadie' to English.",
+      options: ["Good morning", "Good night", "Welcome", "Goodbye"],
+      answer: "Good morning",
+    },
+    {
+      question: "What does 'Ami ke idem' mean?",
+      options: ["I am fine", "You are strong", "I love you", "Come here"],
+      answer: "I am fine",
+    },
+    {
+      question: "Translate 'Nnyin eke' to English.",
+      options: ["We are here", "You are fine", "I am happy", "Go away"],
+      answer: "We are here",
+    },
+    {
+      question: "What does 'Ami ifon' mean?",
+      options: ["I am happy", "I am sad", "I am strong", "I am weak"],
+      answer: "I am happy",
+    },
+  ],
+  efik: [
+    {
+      question: "What is 'Mmo' in English?",
+      options: ["Child", "Man", "Woman", "Food"],
+      answer: "Child",
+    },
+    {
+      question: "Translate 'Mesiere' to English.",
+      options: ["Good morning", "Goodbye", "Welcome", "Good night"],
+      answer: "Welcome",
+    },
+    {
+      question: "What does 'Ami ke idem' mean?",
+      options: ["I am fine", "I am coming", "I am strong", "I love you"],
+      answer: "I am fine",
+    },
+    {
+      question: "Translate 'Dọkita' to English.",
+      options: ["Teacher", "Doctor", "Leader", "Pastor"],
+      answer: "Doctor",
+    },
+    {
+      question: "What does 'Sọsọñọ' mean in Efik?",
+      options: ["Thank you", "Sorry", "Love", "Good night"],
+      answer: "Thank you",
+    },
+    {
+      question: "Translate 'Ọkpọñ' to English.",
+      options: ["Money", "Food", "Water", "House"],
+      answer: "Money",
+    },
+  ],
+  hausa: [
+    {
+      question: "What does 'Sannu' mean?",
+      options: ["Hello", "Goodbye", "Yes", "Please"],
+      answer: "Hello",
+    },
+    {
+      question: "Translate 'Na gode' to English.",
+      options: ["Sorry", "Please", "Thank you", "Good night"],
+      answer: "Thank you",
+    },
+    {
+      question: "What is 'Ina kwana' in English?",
+      options: ["Good morning", "Good night", "Good afternoon", "Welcome"],
+      answer: "Good morning",
+    },
+    {
+      question: "Translate 'Zan tafi' to English.",
+      options: ["I am going", "I am coming", "I am fine", "I am here"],
+      answer: "I am going",
+    },
+    {
+      question: "What does 'Eh' mean in Hausa?",
+      options: ["Yes", "No", "Maybe", "Stop"],
+      answer: "Yes",
+    },
+    {
+      question: "Translate 'Ina son ka' to English.",
+      options: ["I like you", "I love you", "I miss you", "I need you"],
+      answer: "I love you",
+    },
+    {
+      question: "What does 'Sai anjima' mean?",
+      options: ["See you later", "Goodbye", "Take care", "Come here"],
+      answer: "See you later",
+    },
+  ],
 };

@@ -7,12 +7,12 @@
       "audio": "nyin-mi-di.mp3"
     },
     { "word": "Ndọ", "translation": "Please", "audio": "ndo.mp3" },
-    { "word": "Sọsọñọ", "translation": "Thank you", "audio": "sosono.mp3" }
+    { "word": "Sọsọñọ", "translation": "Thank you", "audio": "sosong.mp3" }
   ],
   "2": [
     { "word": "Ee", "translation": "Yes", "audio": "ee.mp3" },
     { "word": "Dida", "translation": "No", "audio": "dida.mp3" },
-    { "word": "Mbuọri", "translation": "Sorry", "audio": "mbuori.mp3" },
+    { "word": "Mbuọri", "translation": "Sorry", "audio": "mbouri.mp3" },
     { "word": "Bọ", "translation": "Come", "audio": "bo.mp3" }
   ],
   "3": [
